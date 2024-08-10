@@ -8,13 +8,11 @@ export default function Dropdown({ item }) {
 
     return (
         <>
-            <div onClick={() => setSubnavOpen(!subnavOpen)}>
-                <div className="">
+            <div className="flex items-center justify-between ease-in-out transition-all" onClick={() => setSubnavOpen(!subnavOpen)}>
                     <span> {item.name}</span>
                     <IoIosArrowDown className="float-right"/>
-                </div>
             </div>
-            <div className={`px-10 ${subnavOpen ? "visible" : "hidden"}`}>
+            <div className={`transition-all ease-in-out px-10 ${subnavOpen ? "visible" : "hidden"}`}>
                 {item.reos.map((reo) => {
                     return <>
                     <a href={'/reos/' + reo.data.Name}>{reo.data.Name}</a>
