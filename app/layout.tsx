@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div className="flex">
-        <Sidebar dropdowns={<Dropdowns />}></Sidebar>
+        <Sidebar><Dropdowns /></Sidebar>
         
         <main className="bg-gray-100 w-screen h-screen p-10">
         {children}
