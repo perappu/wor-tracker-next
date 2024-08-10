@@ -6,22 +6,11 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 export async function generateStaticParams() {
     // get all your mdx files
     const foldernames: string[] = fs.readdirSync(path.join('./reos'));
-    const reos: string[] = [];
 
-    // let's use the filenames without `.mdx` extension as our slugs
-    foldernames.map((foldername) => {
-        const file = fs.readFileSync(path.join('./reos/', foldername + '/page.mdx'), 'utf8');
-        const name = matter(file).data.Name;
-        reos.push(name);
-    });
-
-    return reos;
+    return foldernames.map((foldername) => ({
+        slug: foldername,
+    }))
 }
-
-type Reo = {
-    data: Record<string, unknown>
-}
-
 
 function getPost({slug} : {slug : string}){
     const markdownFile = fs.readFileSync(path.join('reos/' + slug + '/page.mdx'), 'utf-8')
@@ -30,16 +19,18 @@ function getPost({slug} : {slug : string}){
 
     return {
         frontMatter,
+        slug,
         content
     }
 }
 
-export default async function Page({ params }: { params: string }) {
+export default async function Page({ params }: { params: { slug: string } }) {
     const props = getPost(params);
 
     return (
-        <article className='prose prose-sm md:prose-base lg:prose-lg prose-slate !prose-invert mx-auto'>
-            <h2>{props.frontMatter.name}</h2>
+        <article className='prose prose-sm md:prose-base lg:prose-lg prose-slate mx-auto'>
+            <h2>{props.frontMatter.Name}</h2>
+            {props.frontMatter.Link}
             <MDXRemote source={props.content}/>
         </article>
     )
