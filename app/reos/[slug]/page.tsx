@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import Gallery from '@/components/gallery';
 
 export async function generateStaticParams() {
     // get all your mdx files
@@ -30,8 +31,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
     return (
         <article className='prose prose-sm md:prose-base lg:prose-lg prose-slate mx-auto'>
             <h2>{props.frontMatter.Name}</h2>
-            {props.frontMatter.Link}
+            <a href={props.frontMatter.Link}>Import Link</a>
             <MDXRemote source={props.content}/>
+            <hr />
+            <h3>Gallery</h3>
+            <Gallery slug={params.slug} />
         </article>
     )
 }
