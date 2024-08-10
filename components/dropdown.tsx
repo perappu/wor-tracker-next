@@ -2,7 +2,17 @@
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
-export default function Dropdown({ item }) {
+type Category = {
+    name: string,
+    reos: Reo[]
+}
+
+type Reo = {
+    slug: string,
+    data: {[key: string]: any}
+}
+
+export default function Dropdown(item : Category) {
 
     const [subnavOpen, setSubnavOpen] = useState(true);
 

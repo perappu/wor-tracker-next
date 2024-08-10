@@ -37,7 +37,7 @@ type Category = {
 
 type Reo = {
     slug: string,
-    data: Record<string, unknown>
+    data: {[key: string]: any}
 }
 
 async function Dropdowns() {
@@ -46,7 +46,7 @@ async function Dropdowns() {
     return (<>
         <nav>
             {resources.map((categories) => (<>
-                <Dropdown item={categories} />
+                <Dropdown {...categories} />
             </>
             ))}
         </nav>
