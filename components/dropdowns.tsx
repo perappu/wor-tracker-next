@@ -17,12 +17,12 @@ async function getResources(): Promise<Category[]> {
         if (!categories.find(i => i.name === data.Category)) {
 
             let category: Category = { name: data.Category, reos: [] }
-            category.reos.push({ data: data });
+            category.reos.push({ slug: foldername, data: data });
             categories.push(category);
 
         } else {
 
-            categories.find(i => i.name === data.Category)?.reos.push({ data: data });
+            categories.find(i => i.name === data.Category)?.reos.push({ slug: foldername, data: data });
 
         }
     });
@@ -36,6 +36,7 @@ type Category = {
 }
 
 type Reo = {
+    slug: string,
     data: Record<string, unknown>
 }
 

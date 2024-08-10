@@ -4,7 +4,7 @@ import { IoIosArrowDown } from "react-icons/io";
 
 export default function Dropdown({ item }) {
 
-    const [subnavOpen, setSubnavOpen] = useState(false);
+    const [subnavOpen, setSubnavOpen] = useState(true);
 
     return (
         <>
@@ -15,7 +15,7 @@ export default function Dropdown({ item }) {
             <div className={`transition-all ease-in-out px-10 ${subnavOpen ? "visible" : "hidden"}`}>
                 {item.reos.map((reo) => {
                     return <>
-                    <a href={'/reos/' + reo.data.Name}>{reo.data.Name}</a>
+                    <a href={'/reos/' + reo.slug}>{reo.data.Name}</a>
                     </>;
                 })
                 }
