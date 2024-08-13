@@ -26,6 +26,7 @@ export default function Dropdown(item : Category) {
                 {item.reos.map((reo) => {
                     return <>
                     <a href={'/reos/' + reo.slug}>{reo.data.Name}</a>
+                    <br />
                     </>;
                 })
                 }

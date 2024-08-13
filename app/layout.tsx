@@ -22,7 +22,9 @@ export default function RootLayout({
         <Sidebar><Dropdowns /></Sidebar>
         
         <main className="bg-gray-100 w-screen h-screen p-10">
+        <article className='prose prose-sm md:prose-base lg:prose-lg prose-slate'>
         {children}
+        </article>
         </main>
         </div>
       </body>

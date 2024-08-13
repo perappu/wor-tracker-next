@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Gallery from '@/components/gallery';
+import Embed from '@/components/embed';
 
 export async function generateStaticParams() {
     // get all your mdx files
@@ -29,13 +30,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
     const props = getPost(params);
 
     return (
-        <article className='prose prose-sm md:prose-base lg:prose-lg prose-slate mx-auto'>
+        <>
             <h2>{props.frontMatter.Name}</h2>
-            <a href={props.frontMatter.Link}>Import Link</a>
+            <div className="grid grid-cols-2">
+            <Embed key={props.frontMatter.Link} link={props.frontMatter.Link} />
+            <div>
             <MDXRemote source={props.content}/>
+            </div>
+            </div>
             <hr />
             <h3>Gallery</h3>
             <Gallery slug={params.slug} />
-        </article>
+        </>
     )
 }
