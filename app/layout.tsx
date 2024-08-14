@@ -17,12 +17,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <body>
-        <div className="flex">
+        <div className="flex min-h-screen relative">
         <Sidebar><Dropdowns /></Sidebar>
         
-        <main className="bg-gray-100 w-screen h-screen p-10">
-        <article className='prose prose-sm md:prose-base lg:prose-lg prose-slate'>
+        <main className="bg-gray-100 w-screen h-100 p-10 pt-20">
+        <article className='prose-sm md:prose-base lg:prose-lg prose-slate'>
         {children}
         </article>
         </main>
