@@ -31,18 +31,23 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
     return (
         <>
+        <div className="text-center">
             <h2>{props.frontMatter.Name}</h2>
-            <div className="flex flex-row">
+            <hr />
+            <div className="flex flex-row pl-40 pr-40">
                 <div className="basis 1/4">
             <Embed key={props.frontMatter.Link} link={props.frontMatter.Link} />
             </div>
             <div className="basis 1/2">
+            <div className="text-left">
             <MDXRemote source={props.content}/>
             </div>
             </div>
+            </div>
             <hr />
-            <h3>Gallery</h3>
+            <h2>Gallery</h2>
             <Gallery slug={params.slug} />
+            </div>
         </>
     )
 }

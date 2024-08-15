@@ -22,7 +22,7 @@ export default function RootLayout({
         <div className="flex min-h-screen relative">
         <Sidebar><Dropdowns /></Sidebar>
         
-        <main className="bg-gray-100 w-screen h-100 p-10 pt-20">
+        <main className="bg-gray-100 w-screen h-100 p-10">
         <article className='prose-sm md:prose-base lg:prose-lg prose-slate'>
         {children}
         </article>
