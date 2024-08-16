@@ -64,8 +64,8 @@ const Gallery = (slug: { slug: string; }) => {
 
     // calculate total CP
     var cpTotal: number = 0;
-    images.map((image) => {
-        return cpTotal + parseInt(image.matter.CP)
+    images.map((image) => { 
+        cpTotal += parseInt(image.matter.CP)
     });
 
     // sort the images into categories
@@ -77,10 +77,10 @@ const Gallery = (slug: { slug: string; }) => {
             {categories.map((category) => {
                 return <>
                     <h3>{category.name}</h3>
-                    <article className='prose prose-sm md:prose-base lg:prose-lg prose-slate mx-auto grid grid-cols-2'>
+                    <article className='prose prose-sm md:prose-base lg:prose-base prose-slate mx-auto grid grid-cols-3'>
                         {category.images.map((image) => {
                             return <>
-                                <div className="">
+                                <div className="ml-1 mr-1 w-full">
                                     <Embed key={image.matter.Link} link={image.matter.Link} />
                                     <MDXRemote source={image.content}/>
                                 </div>
