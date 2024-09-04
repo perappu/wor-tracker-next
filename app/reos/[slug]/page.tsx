@@ -32,13 +32,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
     return (
         <>
         <div className="text-center">
-            <h2>{props.frontMatter.Name}</h2>
+            <h2 className="!mt-1">{props.frontMatter.Name}</h2>
             <hr />
             <div className="flex flex-row pl-40 pr-40">
-                <div className="basis 1/4">
+                <div className="basis-1/4">
             <Embed key={props.frontMatter.Link} link={props.frontMatter.Link} />
             </div>
-            <div className="basis 1/2">
+            <div className="basis-3/4">
             <div className="text-left">
             <MDXRemote source={props.content}/>
             </div>

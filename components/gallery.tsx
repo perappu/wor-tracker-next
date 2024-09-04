@@ -54,6 +54,8 @@ function sortImages(images: Image[]) {
         }
     });
 
+    categories.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+
     return categories;
 
 }
@@ -77,10 +79,10 @@ const Gallery = (slug: { slug: string; }) => {
             {categories.map((category) => {
                 return <>
                     <h3>{category.name}</h3>
-                    <article className='prose prose-sm md:prose-base lg:prose-base prose-slate mx-auto grid grid-cols-3'>
+                    <article className='prose md:prose-base lg:prose-base prose-slate grid grid-flow-col auto-cols-max !text-base'>
                         {category.images.map((image) => {
                             return <>
-                                <div className="ml-1 mr-1 w-full">
+                                <div className="ml-1 mr-1 w-full text-center">
                                     <Embed key={image.matter.Link} link={image.matter.Link} />
                                     <MDXRemote source={image.content}/>
                                 </div>

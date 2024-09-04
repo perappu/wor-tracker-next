@@ -5,8 +5,8 @@ export default async function Embed(link: any) {
    
     return <>
     <div className="text-center">
-    <a href={link.link}><img className="!m-1" src={data.thumbnail_url} /></a>
-    <a href={link.link}><b>{data.title}</b></a> by <a href={data.author_url}>{data.author_name}</a>
+    <a href={link.link}><img className="mx-auto" src={data.thumbnail_url} /></a>
+    <a href={link.link}><b>{data.title}</b></a><br /> by <a href={data.author_url}>{data.author_name}</a>
     </div>
     </>;
   }
