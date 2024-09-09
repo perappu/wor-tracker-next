@@ -32,9 +32,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
     return (
         <>
         <div className="text-center">
-            <h2 className="!mt-1">{props.frontMatter.Name}</h2>
-            <hr />
-            <div className="flex flex-row pl-40 pr-40">
+            <h2 className="!mt-1 !mb-4">{props.frontMatter.Name}</h2>
+            <hr className="!mt-2 !mb-1" />
+            <div className="flex flex-row px-40">
                 <div className="basis-1/4">
             <Embed key={props.frontMatter.Link} link={props.frontMatter.Link} />
             </div>
@@ -44,8 +44,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
             </div>
             </div>
             </div>
-            <hr />
-            <h2>Gallery</h2>
+            <hr className="!mt-2 !mb-2" />
+            <h2 className="!mt-1 !mb-4">Gallery</h2>
             <Gallery slug={params.slug} />
             </div>
         </>
